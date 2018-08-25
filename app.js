@@ -13,7 +13,7 @@ App({
        // console.log('哈哈')
       }
     })
-    // 获取用户信息
+    // 获取用户　　　　信息
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
