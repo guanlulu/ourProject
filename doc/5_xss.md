@@ -31,8 +31,8 @@ eg: 尺寸单位、样式导入
     * 设置page的xxx.json中的backgroundColor属性来影响一个page页面下拉时出现的**空白区域**的颜色，一般来说当你页面有**下拉刷新和上拉加载**功能时，往往要设置backgroundColor属性
 2. 使用flex布局使用方式（具体了解flex,请点此链接，图文并茂）
 
-    [flex grammar](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
-    [flex example](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
+    * [flex grammar](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+    * [flex example](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
     * display flex容器的属性
      
       * flex-direction : 决定主轴的方向
@@ -45,6 +45,6 @@ eg: 尺寸单位、样式导入
       * 相对而言，例如你的主轴是y轴，那么你的交叉轴就是x轴
 3. rpx
 
-    [微信小程序新单位rpx与自适应布局](https://segmentfault.com/a/1190000007220703)
-    [微信小程序开发--从px到rpx](http://www.wxapp-union.com/portal.php?mod=view&aid=2826)
+    * [微信小程序新单位rpx与自适应布局](https://segmentfault.com/a/1190000007220703)
+    * [微信小程序开发--从px到rpx](http://www.wxapp-union.com/portal.php?mod=view&aid=2826)
 
