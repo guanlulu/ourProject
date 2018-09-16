@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div.box {
+      margin: 100px auto;
+      width: 180px;
+      height: 180px;
+      border: 1px solid #ccc;
+      display: flex;
+      /* 换 y 轴 */
+      flex-direction: column;
+      /* 换行 */
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    span {
+      width: 60px;
+      height: 60px;
+      background: #000;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+</body>
+
+</html>

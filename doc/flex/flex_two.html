@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex two</title>
+  <style>
+    div {
+      margin: 100px auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+    span {
+      width: 60px;
+      height: 60px;
+      background: #000;
+      border-radius: 50%;
+    }
+    /* .box {
+      display: flex;
+      justify-content: space-between;
+    } */
+
+    /* .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    } */
+
+    /* .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    } */
+
+    /* 对角线  */
+    /* .box {
+      display: flex;
+    }
+
+    .item:nth-child(2) {
+      align-self: center;
+    } */
+
+    /* 对角线  */
+    .box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .item:nth-child(2) {
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+</body>
+</html>

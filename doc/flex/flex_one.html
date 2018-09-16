@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      margin: 100px auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+    span {
+      width: 60px;
+      height: 60px;
+      background: #000;
+      border-radius: 50%;
+    }
+    /* 左上角1个点 */
+    /* Flex布局默认就是首行左对齐 */
+    /*flex 会让容器里的元素成为 行内元素  */
+    /* .box {
+      display: flex;  
+    } */
+
+    /* 设置项目的对齐方式，就能实现居中对齐和右对齐 */
+    /* justify-content: flex-end; 靠右 */
+    /* .box {
+      display: flex;
+      justify-content: center;
+    } */
+
+    /* 设置交叉轴对齐方式，可以垂直移动主轴 */
+    /* .box {
+      display: flex;
+      align-items: center;
+    } */
+
+    /* 居中 */
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="item"></span>
+  </div>
+</body>
+<script>
+
+</script>
+</html>
