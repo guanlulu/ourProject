@@ -8,6 +8,17 @@ Page({
     feed: [],
     feed_length: 0
   },
+  //事件处理函数
+  bindItemTap: function () {
+    wx.navigateTo({
+      url: '../answer/answer'
+    })
+  },
+  bindQueTap: function () {
+    wx.navigateTo({
+      url: '../question/question'
+    })
+  },
   onLoad: function () {
     console.log('onLoad')
     //调用应用实例的方法获取全局数据
