@@ -4,12 +4,23 @@ var app = getApp()
 Page({
   data: {
     motto: '知乎--微信小程序版',
-    userInfo: {}
+    userInfo: {},
+    visible: false
   },
   //事件处理函数
   toQuestion: function () {
     wx.navigateTo({
       url: '../question/question'
+    })
+  },
+  share: function() {
+    this.setData({
+      visible: true
+    })
+  },
+  close: function() {
+    this.setData({
+      visible: false
     })
   },
   onLoad: function () {

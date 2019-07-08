@@ -5,7 +5,7 @@
   </view>
   <view class="answerer-wrp">
     <view class="bg-half"></view>
-    <view class="answerer flex-wrp">
+    <view class="answerer flex-wrp" bindtap="share">
       <view class="avatar flex-item">
         <image src="../../images/icon1.jpeg"></image>
       </view>
@@ -82,4 +82,7 @@
 
 
   </view>
+  <block>
+    <share bindclose="close" visible="{{visible}}" userInfo="{{userInfo}}"></share>
+  </block>
 </view>

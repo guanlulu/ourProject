@@ -1,8 +1,56 @@
 // share.js
-var app = getApp()
+function getImageInfo(url) {
+    return new Promise((resolve, reject) => {
+        wx.getImageInfo({
+            src: url,
+            success: resolve,
+            fail: reject,
+        })
+    })
+}
+  
+function createRpx2px() {
+    const { windowWidth } = wx.getSystemInfoSync()
+  
+    return function(rpx) {
+        return windowWidth / 750 * rpx
+    }
+}
+  
+const rpx2px = createRpx2px()
+  
+function canvasToTempFilePath(option, context) {
+    return new Promise((resolve, reject) => {
+        wx.canvasToTempFilePath({
+            ...option,
+            success: resolve,
+            fail: reject,
+        }, context)
+    })
+}
+  
+function saveImageToPhotosAlbum(option) {
+    return new Promise((resolve, reject) => {
+        wx.saveImageToPhotosAlbum({
+            ...option,
+            success: resolve,
+            fail: reject,
+        })
+    })
+}
+
 Component({
     data:{
         // 定义组件的内部数据 
+        beginDraw: false,
+        isDraw: false,
+
+        canvasWidth: 843,
+        canvasHeight: 1500,
+
+        imageFile: '',
+
+        responsiveScale: 1,
     },
     properties:{
         // 组件的对外属性，主要用于父页面向子组件传值
@@ -39,9 +87,30 @@ Component({
     },
     methods:{
         // 组件内部的方法
+        handleClose() {
+            this.triggerEvent('close')
+          },
+        handleSave() {
+            const { imageFile } = this.data
+            console.log(imageFile)
+      
+            if (imageFile) {
+                saveImageToPhotosAlbum({
+                    filePath: imageFile,
+                }).then(() => {
+                    wx.showToast({
+                    icon: 'none',
+                    title: '分享图片已保存至相册',
+                    duration: 2000,
+                    })
+                })
+            }
+        },
         draw() {
+            wx.showLoading()
             // 实际绘制函数，后续绘制代码放于此处
             // 父组件传入，父组件调用 getUserInfo
+            const { userInfo, canvasWidth, canvasHeight } = this.data
             const { avatarUrl, nickName } = userInfo
 
             // 获取头像图像信息 
@@ -64,11 +133,11 @@ Component({
                 const avatarTop = 40
                 // 绘制头像
                 ctx.drawImage(
-                avatar.path,
-                canvasWidth / 2 - avatarWidth / 2,
-                avatarTop - avatarHeight / 2,
-                avatarWidth,
-                avatarHeight
+                    avatar.path,
+                    canvasWidth / 2 - avatarWidth / 2,
+                    avatarTop - avatarHeight / 2,
+                    avatarWidth,
+                    avatarHeight
                 )
 
                 // 绘制用户名
@@ -76,13 +145,21 @@ Component({
                 ctx.setTextAlign('center')
                 ctx.setFillStyle('#ffffff')
                 ctx.fillText(
-                nickName,
-                canvasWidth / 2,
-                avatarTop + 50,
+                    nickName,
+                    canvasWidth / 2,
+                    avatarTop + 50,
                 )
                 ctx.stroke()
                 // 完成作画
-                ctx.draw()
+                // ctx.draw()
+                ctx.draw(false, () => {
+                    canvasToTempFilePath({
+                      canvasId: 'share',
+                    }, this).then(({ tempFilePath }) => this.setData({ imageFile: tempFilePath }))
+                })
+
+                wx.hideLoading()
+                this.setData({ isDraw: true }) // isDraw 好像目前没什么用
             })
         }
     }

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "回答",
   "usingComponents": {
-      "share": "pages/share/share"
+      "share": "../share/share"
   }
 }
